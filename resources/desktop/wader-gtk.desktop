@@ -1,0 +1,15 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Type=Application
+Name=Wader
+Name[es]=Wader
+GenericName=Mobile Broadband
+GenericName[es]=Banda Ancha Móvil
+Comment=Connect with 3G devices, manage your SMS and contacts
+Comment[es]=Conecte con dispositivos 3G, gestione sus SMS y contactos
+Exec=wader-gtk
+Icon=wader-gtk
+Terminal=false
+Categories=Network;Dialup;Telephony;TelephonyTools
+StartupNotify=true

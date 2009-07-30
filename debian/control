@@ -1,0 +1,22 @@
+Source: wader-gtk
+Section: net
+Priority: optional
+Maintainer: Pablo Marti Gamboa <pmarti@warp.es>
+Build-Depends: debhelper (>= 5)
+Build-Depends-Indep: python-dev, python-central (>= 0.5), gettext, python-setuptools
+Standards-Version: 3.8.0
+Homepage: http://www.wader-project.org
+XS-Python-Version: current
+
+Package: wader-gtk
+Architecture: all
+Depends: ${python:Depends}, wader-core (= ${source:Version}), python-gtk2, python-glade2, python-gtkmvc, python-gnome2, python-gnome2-desktop, python-notify, wmctrl
+Recommends: python-sexy
+XB-Python-Version: ${python:Versions}
+Description: Internet connection assistant for mobile devices.
+  Wader is a tool that manages 3G devices and mobile phones offering a dbus
+  interface so other applications can use its services as connecting to the
+  Internet, sending SMS, managing contacts, and such. This package contains
+  the GTK GUI.
+  .
+

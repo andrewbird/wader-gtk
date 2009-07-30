@@ -1,0 +1,29 @@
+style "default"
+{
+#  bg[NORMAL] = "#dbe6fa"
+#
+#  bg[PRELIGHT] = "#0aff0a"
+}
+
+style "operator"
+{
+    font_name = "bold"
+    fg[NORMAL] = "#005499"
+}
+
+style "tech"
+{
+    font_name = "bold"
+    fg[NORMAL] = "#549900"
+}
+
+style "status"
+{
+    font_name = "bold"
+    fg[NORMAL] = "#540099"
+}
+
+class "GtkWidget" style "default"
+widget "*.operator_label" style "operator"
+widget "*.tech_label" style "tech"
+widget "*.status_label" style "status"
