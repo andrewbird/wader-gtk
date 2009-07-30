@@ -62,7 +62,7 @@ class MainView(View):
 
     def rssi_changed(self, new_rssi):
         icon = self._get_signal_icon(new_rssi)
-        path = os.path.join(GLADE_DIR, '%d.gif' % icon)
+        path = os.path.join(GLADE_DIR, '%d.png' % icon)
         self['signal_image'].set_from_file(path)
 
     def operator_changed(self, new_operator):
