@@ -306,12 +306,13 @@ class SMSContactsController(Controller):
         sel.select_path(model.get_path(childiter))
 
     # DBus callbacks
-    def on_sms_received_cb(self, index):
+    def on_sms_received_cb(self, index, complete):
         """
         Executed whenever a new SMS is received
 
         It will append the SMS to the treeview model
         """
+        # XXX: Handle complete argument
         if self.treeview_index == SMS_TAB:
             # only process it if we're in SMS mode
             def process_sms_eb(error):

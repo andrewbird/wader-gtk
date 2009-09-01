@@ -245,12 +245,13 @@ class MainController(Controller):
                                 _("You have exceeded your transfer limit"))
 
     # callbacks
-    def on_sms_received_cb(self, index):
+    def on_sms_received_cb(self, index, complete):
         """
         Executed whenever a new SMS is received
 
         Will read and show the SMS to the user
         """
+        # XXX: handle complete argument
         def process_sms_eb(error):
             title = _("Error reading SMS %d") % index
             show_error_dialog(title, get_error_msg(error))
