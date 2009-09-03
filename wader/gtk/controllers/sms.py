@@ -324,7 +324,12 @@ class SMSContactsController(Controller):
                 if isinstance(model, gtk.TreeModelFilter):
                     model = model.get_model()
 
-                model.add_sms(sms)
+                _iter = model.add_sms(sms)
+                # XXX: This used to work before without any further
+                # explicit action :S
+                path = model.get_path(_iter)
+                # notify the treeview about the new row
+                model.row_inserted(path, _iter)
 
             # read the SMS and show it to the user
             self.model.device.Get(index,
@@ -382,15 +387,11 @@ class SMSContactsController(Controller):
 
         self.view.set_visible_func(cat.visible_func)
 
-        if self.treeview_index is None:
-            # first time
-            self.treeview_index = index
-        else:
-            if self.treeview_index == index:
-                # do not request a new *.List command if its not necessary
-                return
+        if self.treeview_index == index:
+            # do not request a new *.List command if its not necessary
+            return
 
-            self.treeview_index = index
+        self.treeview_index = index
 
         # potentially long operation, show throbber
         self.view.start_throbber()
