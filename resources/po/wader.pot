@@ -8,13 +8,40 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-24 09:58+0200\n"
+"POT-Creation-Date: 2009-09-09 14:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: ../glade/keyring.glade:34
+msgid "<span size='large' weight='bold'>Creating a new keyring</span>"
+msgstr ""
+
+#: ../glade/keyring.glade:47
+msgid ""
+"Please, insert a code to encrypt your sensible\n"
+"information."
+msgstr ""
+
+#: ../glade/keyring.glade:80 ../glade/keyring.glade:189
+#: ../glade/profiles.glade:142
+msgid "Password:"
+msgstr ""
+
+#: ../glade/keyring.glade:99
+msgid "Confirm password:"
+msgstr ""
+
+#: ../glade/keyring.glade:130
+msgid "Unlock Keyring"
+msgstr ""
+
+#: ../glade/keyring.glade:155
+msgid "Please, enter your keyring password"
+msgstr ""
 
 #: ../glade/wader.glade:21 ../glade/sms.glade:21
 msgid "_File"
@@ -36,7 +63,7 @@ msgstr ""
 msgid "_Help"
 msgstr ""
 
-#: ../glade/wader.glade:136 ../../wader/gtk/views/main.py:85
+#: ../glade/wader.glade:136 ../../wader/gtk/views/main.py:86
 msgid "Connect"
 msgstr ""
 
@@ -68,12 +95,72 @@ msgstr ""
 msgid "Total:"
 msgstr ""
 
+#: ../glade/sms.glade:65
+msgid "New"
+msgstr ""
+
+#: ../glade/sms.glade:79
+msgid "Delete"
+msgstr ""
+
+#: ../glade/sms.glade:98
+msgid "_Search"
+msgstr ""
+
+#: ../glade/sms.glade:229 ../../wader/gtk/controllers/sms.py:686
+msgid "Send SMS"
+msgstr ""
+
+#: ../glade/sms.glade:241
+msgid "Send"
+msgstr ""
+
+#: ../glade/sms.glade:285
+msgid "_To:"
+msgstr ""
+
+#: ../glade/sms.glade:361
+msgid "Add a contact"
+msgstr ""
+
+#: ../glade/sms.glade:383
+msgid "<b>Add a contact</b>"
+msgstr ""
+
+#: ../glade/sms.glade:405
+msgid "<b>Name:</b>"
+msgstr ""
+
+#: ../glade/sms.glade:413
+msgid "<b>Number:</b>"
+msgstr ""
+
 #: ../glade/misc.glade:54
 msgid "Wader log"
 msgstr ""
 
 #: ../glade/misc.glade:67
 msgid "\n"
+msgstr ""
+
+#: ../glade/preferences.glade:147
+msgid "<b>Profiles</b>"
+msgstr ""
+
+#: ../glade/preferences.glade:183
+msgid "Warn user when transfer limit exceeded"
+msgstr ""
+
+#: ../glade/preferences.glade:213
+msgid "Reset statistics"
+msgstr ""
+
+#: ../glade/preferences.glade:227
+msgid "Transfer limit (MB)"
+msgstr ""
+
+#: ../glade/preferences.glade:262
+msgid "<b>Statistics</b>"
 msgstr ""
 
 #: ../glade/profiles.glade:8
@@ -105,11 +192,6 @@ msgstr ""
 msgid "Username:"
 msgstr ""
 
-#: ../glade/profiles.glade:142 ../glade/keyring.glade:80
-#: ../glade/keyring.glade:189
-msgid "Password:"
-msgstr ""
-
 #: ../glade/profiles.glade:152
 msgid "APN host:"
 msgstr ""
@@ -136,124 +218,6 @@ msgstr ""
 
 #: ../glade/profiles.glade:293
 msgid "Secondary DNS:"
-msgstr ""
-
-#: ../glade/sms.glade:65
-msgid "New"
-msgstr ""
-
-#: ../glade/sms.glade:79
-msgid "Delete"
-msgstr ""
-
-#: ../glade/sms.glade:98
-msgid "_Search"
-msgstr ""
-
-#: ../glade/sms.glade:229 ../../wader/gtk/controllers/sms.py:684
-msgid "Send SMS"
-msgstr ""
-
-#: ../glade/sms.glade:241
-msgid "Send"
-msgstr ""
-
-#: ../glade/sms.glade:285
-msgid "_To:"
-msgstr ""
-
-#: ../glade/sms.glade:361
-msgid "Add a contact"
-msgstr ""
-
-#: ../glade/sms.glade:383
-msgid "<b>Add a contact</b>"
-msgstr ""
-
-#: ../glade/sms.glade:405
-msgid "<b>Name:</b>"
-msgstr ""
-
-#: ../glade/sms.glade:413
-msgid "<b>Number:</b>"
-msgstr ""
-
-#: ../glade/keyring.glade:34
-msgid "<span size='large' weight='bold'>Creating a new keyring</span>"
-msgstr ""
-
-#: ../glade/keyring.glade:47
-msgid ""
-"Please, insert a code to encrypt your sensible\n"
-"information."
-msgstr ""
-
-#: ../glade/keyring.glade:99
-msgid "Confirm password:"
-msgstr ""
-
-#: ../glade/keyring.glade:130
-msgid "Unlock Keyring"
-msgstr ""
-
-#: ../glade/keyring.glade:155
-msgid "Please, enter your keyring password"
-msgstr ""
-
-#: ../glade/preferences.glade:147
-msgid "<b>Profiles</b>"
-msgstr ""
-
-#: ../glade/preferences.glade:183
-msgid "Warn user when transfer limit exceeded"
-msgstr ""
-
-#: ../glade/preferences.glade:213
-msgid "Reset statistics"
-msgstr ""
-
-#: ../glade/preferences.glade:227
-msgid "Transfer limit (MB)"
-msgstr ""
-
-#: ../glade/preferences.glade:262
-msgid "<b>Statistics</b>"
-msgstr ""
-
-#: ../../wader/gtk/dialogs.py:56
-msgid "translator-credits"
-msgstr ""
-
-#: ../../wader/gtk/dialogs.py:260
-msgid "PIN required"
-msgstr ""
-
-#: ../../wader/gtk/dialogs.py:261
-msgid "Please, insert the PIN of your SIM card"
-msgstr ""
-
-#: ../../wader/gtk/dialogs.py:267
-msgid "Password required"
-msgstr ""
-
-#: ../../wader/gtk/dialogs.py:268
-msgid "Please, insert the password of your connection"
-msgstr ""
-
-#: ../../wader/gtk/dialogs.py:274
-msgid "PUK required"
-msgstr ""
-
-#: ../../wader/gtk/dialogs.py:275
-msgid "Please, insert the PUK and PIN of your SIM card"
-msgstr ""
-
-#: ../../wader/gtk/dialogs.py:282
-msgid "PUK2 required"
-msgstr ""
-
-#: ../../wader/gtk/dialogs.py:283
-msgid "Please, insert the PUK2 and PIN of your SIM card"
 msgstr ""
 
 #: ../../wader/gtk/keyring_dialogs.py:60
@@ -356,249 +320,40 @@ msgstr ""
 msgid "3G only"
 msgstr ""
 
-#: ../../wader/gtk/signals.py:27
-msgid "No signal"
+#: ../../wader/gtk/dialogs.py:56
+msgid "translator-credits"
 msgstr ""
 
-#: ../../wader/gtk/controllers/preferences.py:77
-msgid "Error while removing profile"
+#: ../../wader/gtk/dialogs.py:260
+msgid "PIN required"
 msgstr ""
 
-#: ../../wader/gtk/controllers/main.py:77
-msgid "Can not close application"
+#: ../../wader/gtk/dialogs.py:261
+msgid "Please, insert the PIN of your SIM card"
 msgstr ""
 
-#: ../../wader/gtk/controllers/main.py:78
-msgid "Can not close while a connection is active"
+#: ../../wader/gtk/dialogs.py:267
+msgid "Password required"
 msgstr ""
 
-#: ../../wader/gtk/controllers/main.py:153
-msgid "Invalid password"
+#: ../../wader/gtk/dialogs.py:268
+msgid "Please, insert the password of your connection"
 msgstr ""
 
-#: ../../wader/gtk/controllers/main.py:154
-msgid "The supplied password is incorrect"
+#: ../../wader/gtk/dialogs.py:274
+msgid "PUK required"
 msgstr ""
 
-#: ../../wader/gtk/controllers/main.py:160
-msgid "Unknown Network"
+#: ../../wader/gtk/dialogs.py:275
+msgid "Please, insert the PUK and PIN of your SIM card"
 msgstr ""
 
-#: ../../wader/gtk/controllers/main.py:194 ../../wader/gtk/models/main.py:308
-msgid "Initialising"
+#: ../../wader/gtk/dialogs.py:282
+msgid "PUK2 required"
 msgstr ""
 
-#: ../../wader/gtk/controllers/main.py:196 ../../wader/gtk/models/main.py:130
-msgid "No device"
-msgstr ""
-
-#: ../../wader/gtk/controllers/main.py:198 ../../wader/gtk/models/main.py:310
-msgid "Registered"
-msgstr ""
-
-#: ../../wader/gtk/controllers/main.py:198 ../../wader/gtk/models/main.py:318
-msgid "Roaming"
-msgstr ""
-
-#: ../../wader/gtk/controllers/main.py:202
-msgid "Unknown error while initting device"
-msgstr ""
-
-#: ../../wader/gtk/controllers/main.py:206
-msgid "Error while registering to home network"
-msgstr ""
-
-#: ../../wader/gtk/controllers/main.py:244
-msgid "Transfer limit exceeded"
-msgstr ""
-
-#: ../../wader/gtk/controllers/main.py:245
-msgid "You have exceeded your transfer limit"
-msgstr ""
-
-#: ../../wader/gtk/controllers/main.py:255
-#: ../../wader/gtk/controllers/sms.py:318
-#, python-format
-msgid "Error reading SMS %d"
-msgstr ""
-
-#: ../../wader/gtk/controllers/main.py:273
-#: ../../wader/gtk/controllers/main.py:276
-#, python-format
-msgid "SMS received from %s"
-msgstr ""
-
-#: ../../wader/gtk/controllers/main.py:306
-msgid "Failed connection attempt"
-msgstr ""
-
-#: ../../wader/gtk/controllers/main.py:343
-msgid "About"
-msgstr ""
-
-#: ../../wader/gtk/controllers/main.py:350
-msgid "Preferences"
-msgstr ""
-
-#: ../../wader/gtk/controllers/main.py:357
-msgid "Quit"
-msgstr ""
-
-#: ../../wader/gtk/controllers/main.py:378
-msgid "No device found"
-msgstr ""
-
-#: ../../wader/gtk/controllers/main.py:379
-msgid "No device has been found. Insert one and try again."
-msgstr ""
-
-#: ../../wader/gtk/controllers/main.py:387
-#: ../../wader/gtk/controllers/main.py:439
-msgid "Profile needed"
-msgstr ""
-
-#: ../../wader/gtk/controllers/main.py:388
-msgid "You need to create a profile for connecting."
-msgstr ""
-
-#: ../../wader/gtk/controllers/main.py:406
-msgid "Connecting"
-msgstr ""
-
-#: ../../wader/gtk/controllers/main.py:419
-msgid "Disconnecting"
-msgstr ""
-
-#: ../../wader/gtk/controllers/main.py:440
-msgid "You need to create a profile to save preferences"
-msgstr ""
-
-#: ../../wader/gtk/controllers/profile.py:58
-msgid "Error while getting connection password"
-msgstr ""
-
-#: ../../wader/gtk/controllers/profile.py:59
-msgid ""
-"NoMatchError: No password was retrieved from connection, please set one again"
-msgstr ""
-
-#: ../../wader/gtk/controllers/profile.py:94
-msgid "Error creating profile"
-msgstr ""
-
-#: ../../wader/gtk/controllers/sms.py:77
-msgid "Name or number not specified"
-msgstr ""
-
-#: ../../wader/gtk/controllers/sms.py:78
-msgid "You must provide a valid name and number"
-msgstr ""
-
-#: ../../wader/gtk/controllers/sms.py:108
-msgid "Error adding contact"
-msgstr ""
-
-#: ../../wader/gtk/controllers/sms.py:487
-msgid "Error while reading SMS list"
-msgstr ""
-
-#: ../../wader/gtk/controllers/sms.py:517
-msgid "Error while reading contacts list"
-msgstr ""
-
-#: ../../wader/gtk/controllers/sms.py:570
-msgid "_Send SMS"
-msgstr ""
-
-#: ../../wader/gtk/controllers/sms.py:575
-#: ../../wader/gtk/controllers/sms.py:610
-msgid "_Delete"
-msgstr ""
-
-#: ../../wader/gtk/controllers/sms.py:596
-msgid "_Reply"
-msgstr ""
-
-#: ../../wader/gtk/controllers/sms.py:599
-msgid "_Send"
-msgstr ""
-
-#: ../../wader/gtk/controllers/sms.py:678
-msgid "Send SMS from storage"
-msgstr ""
-
-#: ../../wader/gtk/controllers/sms.py:743
-#: ../../wader/gtk/controllers/sms.py:778
-msgid "Invalid number"
-msgstr ""
-
-#: ../../wader/gtk/controllers/sms.py:744
-#: ../../wader/gtk/controllers/sms.py:779
-msgid "You must provide a valid number"
-msgstr ""
-
-#: ../../wader/gtk/controllers/sms.py:750
-msgid "No text to send"
-msgstr ""
-
-#: ../../wader/gtk/controllers/sms.py:751
-msgid "Are you sure you want to send a blank message?"
-msgstr ""
-
-#: ../../wader/gtk/controllers/sms.py:785
-msgid "No text to save"
-msgstr ""
-
-#: ../../wader/gtk/controllers/sms.py:786
-msgid "Are you sure you want to store a blank message?"
-msgstr ""
-
-#: ../../wader/gtk/controllers/sms.py:828
-msgid "Error while sending SMS"
-msgstr ""
-
-#: ../../wader/gtk/controllers/sms.py:854
-msgid "Error while saving SMS"
-msgstr ""
-
-#: ../../wader/gtk/models/main.py:58 ../../wader/gtk/models/main.py:60
-#: ../../wader/gtk/models/main.py:129
-msgid "Unknown"
-msgstr ""
-
-#: ../../wader/gtk/models/main.py:59
-msgid "Not registered"
-msgstr ""
-
-#: ../../wader/gtk/models/main.py:92
-msgid "Error while starting wader"
-msgstr ""
-
-#: ../../wader/gtk/models/main.py:93
-#, python-format
-msgid ""
-"Check that your installation is correct and your  OS/distro is supported: %s"
-msgstr ""
-
-#: ../../wader/gtk/models/main.py:312
-msgid "Scanning"
-msgstr ""
-
-#: ../../wader/gtk/models/main.py:314
-msgid "Reg. rejected"
-msgstr ""
-
-#: ../../wader/gtk/models/main.py:316
-msgid "Unknown Error"
-msgstr ""
-
-#: ../../wader/gtk/models/profile.py:178
-#, python-format
-msgid "A profile with udi \"%s\" exists"
-msgstr ""
-
-#: ../../wader/gtk/models/profile.py:228
-msgid "Trying to remove an unsaved profile"
+#: ../../wader/gtk/dialogs.py:283
+msgid "Please, insert the PUK2 and PIN of your SIM card"
 msgstr ""
 
 #: ../../wader/gtk/models/sms.py:64
@@ -625,16 +380,249 @@ msgstr ""
 msgid "SIM"
 msgstr ""
 
-#: ../../wader/gtk/views/preferences.py:34
-msgid "Profiles"
+#: ../../wader/gtk/models/preferences.py:45
+msgid "No active profile"
 msgstr ""
 
-#: ../../wader/gtk/views/preferences.py:35
-msgid "Statistics"
+#: ../../wader/gtk/models/profile.py:178
+#, python-format
+msgid "A profile with udi \"%s\" exists"
 msgstr ""
 
-#: ../../wader/gtk/views/main.py:82
-msgid "Disconnect"
+#: ../../wader/gtk/models/profile.py:228
+msgid "Trying to remove an unsaved profile"
+msgstr ""
+
+#: ../../wader/gtk/models/main.py:58 ../../wader/gtk/models/main.py:60
+#: ../../wader/gtk/models/main.py:130
+msgid "Unknown"
+msgstr ""
+
+#: ../../wader/gtk/models/main.py:59
+msgid "Not registered"
+msgstr ""
+
+#: ../../wader/gtk/models/main.py:93
+msgid "Error while starting wader"
+msgstr ""
+
+#: ../../wader/gtk/models/main.py:94
+#, python-format
+msgid ""
+"Check that your installation is correct and your  OS/distro is supported: %s"
+msgstr ""
+
+#: ../../wader/gtk/models/main.py:131 ../../wader/gtk/controllers/main.py:196
+msgid "No device"
+msgstr ""
+
+#: ../../wader/gtk/models/main.py:261 ../../wader/gtk/models/main.py:313
+msgid "Scanning"
+msgstr ""
+
+#: ../../wader/gtk/models/main.py:309 ../../wader/gtk/controllers/main.py:194
+msgid "Initialising"
+msgstr ""
+
+#: ../../wader/gtk/models/main.py:311 ../../wader/gtk/controllers/main.py:198
+msgid "Registered"
+msgstr ""
+
+#: ../../wader/gtk/models/main.py:315
+msgid "Reg. rejected"
+msgstr ""
+
+#: ../../wader/gtk/models/main.py:317
+msgid "Unknown Error"
+msgstr ""
+
+#: ../../wader/gtk/models/main.py:319 ../../wader/gtk/controllers/main.py:198
+msgid "Roaming"
+msgstr ""
+
+#: ../../wader/gtk/controllers/sms.py:77
+msgid "Name or number not specified"
+msgstr ""
+
+#: ../../wader/gtk/controllers/sms.py:78
+msgid "You must provide a valid name and number"
+msgstr ""
+
+#: ../../wader/gtk/controllers/sms.py:108
+msgid "Error adding contact"
+msgstr ""
+
+#: ../../wader/gtk/controllers/sms.py:319
+#: ../../wader/gtk/controllers/main.py:256
+#, python-format
+msgid "Error reading SMS %d"
+msgstr ""
+
+#: ../../wader/gtk/controllers/sms.py:489
+msgid "Error while reading SMS list"
+msgstr ""
+
+#: ../../wader/gtk/controllers/sms.py:519
+msgid "Error while reading contacts list"
+msgstr ""
+
+#: ../../wader/gtk/controllers/sms.py:572
+msgid "_Send SMS"
+msgstr ""
+
+#: ../../wader/gtk/controllers/sms.py:577
+#: ../../wader/gtk/controllers/sms.py:612
+msgid "_Delete"
+msgstr ""
+
+#: ../../wader/gtk/controllers/sms.py:598
+msgid "_Reply"
+msgstr ""
+
+#: ../../wader/gtk/controllers/sms.py:601
+msgid "_Send"
+msgstr ""
+
+#: ../../wader/gtk/controllers/sms.py:680
+msgid "Send SMS from storage"
+msgstr ""
+
+#: ../../wader/gtk/controllers/sms.py:745
+#: ../../wader/gtk/controllers/sms.py:780
+msgid "Invalid number"
+msgstr ""
+
+#: ../../wader/gtk/controllers/sms.py:746
+#: ../../wader/gtk/controllers/sms.py:781
+msgid "You must provide a valid number"
+msgstr ""
+
+#: ../../wader/gtk/controllers/sms.py:752
+msgid "No text to send"
+msgstr ""
+
+#: ../../wader/gtk/controllers/sms.py:753
+msgid "Are you sure you want to send a blank message?"
+msgstr ""
+
+#: ../../wader/gtk/controllers/sms.py:787
+msgid "No text to save"
+msgstr ""
+
+#: ../../wader/gtk/controllers/sms.py:788
+msgid "Are you sure you want to store a blank message?"
+msgstr ""
+
+#: ../../wader/gtk/controllers/sms.py:830
+msgid "Error while sending SMS"
+msgstr ""
+
+#: ../../wader/gtk/controllers/sms.py:856
+msgid "Error while saving SMS"
+msgstr ""
+
+#: ../../wader/gtk/controllers/preferences.py:77
+msgid "Error while removing profile"
+msgstr ""
+
+#: ../../wader/gtk/controllers/profile.py:58
+msgid "Error while getting connection password"
+msgstr ""
+
+#: ../../wader/gtk/controllers/profile.py:59
+msgid ""
+"NoMatchError: No password was retrieved from connection, please set one again"
+msgstr ""
+
+#: ../../wader/gtk/controllers/profile.py:94
+msgid "Error creating profile"
+msgstr ""
+
+#: ../../wader/gtk/controllers/main.py:77
+msgid "Can not close application"
+msgstr ""
+
+#: ../../wader/gtk/controllers/main.py:78
+msgid "Can not close while a connection is active"
+msgstr ""
+
+#: ../../wader/gtk/controllers/main.py:153
+msgid "Invalid password"
+msgstr ""
+
+#: ../../wader/gtk/controllers/main.py:154
+msgid "The supplied password is incorrect"
+msgstr ""
+
+#: ../../wader/gtk/controllers/main.py:160
+msgid "Unknown Network"
+msgstr ""
+
+#: ../../wader/gtk/controllers/main.py:202
+msgid "Unknown error while initting device"
+msgstr ""
+
+#: ../../wader/gtk/controllers/main.py:206
+msgid "Error while registering to home network"
+msgstr ""
+
+#: ../../wader/gtk/controllers/main.py:244
+msgid "Transfer limit exceeded"
+msgstr ""
+
+#: ../../wader/gtk/controllers/main.py:245
+msgid "You have exceeded your transfer limit"
+msgstr ""
+
+#: ../../wader/gtk/controllers/main.py:274
+#: ../../wader/gtk/controllers/main.py:277
+#, python-format
+msgid "SMS received from %s"
+msgstr ""
+
+#: ../../wader/gtk/controllers/main.py:308
+msgid "Failed connection attempt"
+msgstr ""
+
+#: ../../wader/gtk/controllers/main.py:345
+msgid "About"
+msgstr ""
+
+#: ../../wader/gtk/controllers/main.py:352
+msgid "Preferences"
+msgstr ""
+
+#: ../../wader/gtk/controllers/main.py:363
+msgid "Quit"
+msgstr ""
+
+#: ../../wader/gtk/controllers/main.py:384
+msgid "No device found"
+msgstr ""
+
+#: ../../wader/gtk/controllers/main.py:385
+msgid "No device has been found. Insert one and try again."
+msgstr ""
+
+#: ../../wader/gtk/controllers/main.py:393
+#: ../../wader/gtk/controllers/main.py:445
+msgid "Profile needed"
+msgstr ""
+
+#: ../../wader/gtk/controllers/main.py:394
+msgid "You need to create a profile for connecting."
+msgstr ""
+
+#: ../../wader/gtk/controllers/main.py:412
+msgid "Connecting"
+msgstr ""
+
+#: ../../wader/gtk/controllers/main.py:425
+msgid "Disconnecting"
+msgstr ""
+
+#: ../../wader/gtk/controllers/main.py:446
+msgid "You need to create a profile to save preferences"
 msgstr ""
 
 #: ../../wader/gtk/views/sms.py:74
@@ -660,4 +648,20 @@ msgstr ""
 
 #: ../../wader/gtk/views/sms.py:218
 msgid "no timestamp"
+msgstr ""
+
+#: ../../wader/gtk/views/preferences.py:34
+msgid "Profiles"
+msgstr ""
+
+#: ../../wader/gtk/views/preferences.py:35
+msgid "Statistics"
+msgstr ""
+
+#: ../../wader/gtk/views/main.py:83
+msgid "Disconnect"
+msgstr ""
+
+#: ../../wader/gtk/signals.py:27
+msgid "No signal"
 msgstr ""
