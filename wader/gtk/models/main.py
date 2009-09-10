@@ -383,7 +383,7 @@ class MainModel(Model):
         except ValueError:
             total = 0
 
-        self.rx_bytes, self.tx_bytes = stats
+        self.rx_bytes, self.tx_bytes = stats[:2]
         self.total_bytes = total + self.rx_bytes + self.tx_bytes
         self.check_transfer_limit()
 
