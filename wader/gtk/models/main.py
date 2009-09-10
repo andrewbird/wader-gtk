@@ -392,8 +392,10 @@ class MainModel(Model):
                                                      S.SIG_DIAL_STATS,
                                                      MDM_INTFACE)
     def stop_stats_tracking(self):
-        self.stats_sm.remove()
-        self.stats_sm = None
+        if self.stats_sm is not None:
+            self.stats_sm.remove()
+            self.stats_sm = None
+
         self.rx_bytes = 0
         self.tx_bytes = 0
         self.conf.set('statistics', 'total_bytes', self.total_bytes)
