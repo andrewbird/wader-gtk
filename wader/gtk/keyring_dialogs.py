@@ -24,12 +24,37 @@ import re
 import string
 
 import gtk
-import gtk.glade
 
 from wader.gtk.translate import _
 from wader.gtk.consts import GLADE_DIR
 
 GLADE_FILE = os.path.join(GLADE_DIR, 'keyring.glade')
+UI_FILE = os.path.join(GLADE_DIR, 'keyring.ui')
+
+GLADE_AVAILABLE = True
+try:
+    import gtk.glade
+except ImportError:
+    GLADE_AVAILABLE = False
+
+FILE_TO_LOAD = GLADE_FILE if GLADE_AVAILABLE else UI_FILE
+
+if GLADE_AVAILABLE:
+    def get_tree(path):
+        return gtk.glade.XML(path)
+
+    def get_object(tree, name):
+        return tree.get_widget(name)
+else:
+    def get_tree(path):
+        tree = gtk.Builder()
+        tree.add_from_file(path)
+        return tree
+
+    def get_object(tree, name):
+        return tree.get_object(name)
+
+
 
 def add_regexp_validation(editable_widget, regexp, notify_parent_cb):
     editable_widget.last_valid_text = editable_widget.get_text()
@@ -53,7 +78,6 @@ def add_password_validation(editable_widget, notify_parent_cb=None):
     add_regexp_validation(editable_widget, "^[%s]*$" % valid_chars,
                           notify_parent_cb)
 
-
 class _KeyringDialog(gtk.Dialog):
     def __init__(self, parent):
         flags = gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT
@@ -67,7 +91,7 @@ class _KeyringDialog(gtk.Dialog):
         self.ok_button.grab_default()
         self.ok_button.set_sensitive(False)
 
-        self.tree = gtk.glade.XML(GLADE_FILE)
+        self.tree = get_tree(FILE_TO_LOAD)
 
 
 class NewKeyringDialog(_KeyringDialog):
@@ -78,21 +102,17 @@ class NewKeyringDialog(_KeyringDialog):
         super(NewKeyringDialog, self).__init__(parent)
         self.cancel_button.destroy()
 
-        def get_widget(name):
-            widget = self.tree.get_widget(name)
-            assert widget, "Could not find %s widget" % name
-            return widget
-
-        pin_panel = get_widget('new_keyring_panel')
-        get_widget('new_keyring_window').remove(pin_panel)
+        pin_panel = get_object(self.tree, 'new_keyring_panel')
+        get_object('new_keyring_window').remove(pin_panel)
         self.vbox.add(pin_panel)
 
-        self.password_entry = get_widget('new_keyring_password')
+        self.password_entry = get_object(self.tree, 'new_keyring_password')
         self.password_entry.get_settings().set_long_property(
             "gtk-entry-password-hint-timeout", 600, "")
         add_password_validation(self.password_entry, self.check_ok_conditions)
 
-        self.confirm_password_entry = get_widget('new_keyring_password_confirm')
+        self.confirm_password_entry = get_object(self.tree,
+                                                'new_keyring_password_confirm')
         self.confirm_password_entry.get_settings().set_long_property(
             "gtk-entry-password-hint-timeout", 600, "")
         add_password_validation(self.confirm_password_entry,
@@ -111,16 +131,11 @@ class KeyringPasswordDialog(_KeyringDialog):
     def __init__(self, parent):
         super(KeyringPasswordDialog, self).__init__(parent)
 
-        def get_widget(name):
-            widget = self.tree.get_widget(name)
-            assert widget, "Could not find %s widget" % name
-            return widget
-
-        pin_panel = get_widget('ask_keyring_password_panel')
-        get_widget('ask_keyring_password_window').remove(pin_panel)
+        pin_panel = get_object(self.tree, 'ask_keyring_password_panel')
+        get_object(self.tree, 'ask_keyring_password_window').remove(pin_panel)
         self.vbox.add(pin_panel)
 
-        self.password_entry = get_widget('keyring_password_entry')
+        self.password_entry = get_object(self.tree, 'keyring_password_entry')
         self.password_entry.get_settings().set_long_property(
             "gtk-entry-password-hint-timeout", 600, "")
         add_password_validation(self.password_entry, self.check_ok_conditions)
