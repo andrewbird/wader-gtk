@@ -103,7 +103,7 @@ class NewKeyringDialog(_KeyringDialog):
         self.cancel_button.destroy()
 
         pin_panel = get_object(self.tree, 'new_keyring_panel')
-        get_object('new_keyring_window').remove(pin_panel)
+        get_object(self.tree, 'new_keyring_window').remove(pin_panel)
         self.vbox.add(pin_panel)
 
         self.password_entry = get_object(self.tree, 'new_keyring_password')
