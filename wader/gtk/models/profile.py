@@ -168,7 +168,7 @@ class ProfileModel(Model):
         if self.profile:
             self.manager.update_profile(self.profile, props)
             # store password associated to this connection
-            secrets = {'gsm' : { NM_PASSWD : self.password}}
+            secrets = {'gsm' : {NM_PASSWD : self.password}}
             self.profile.secrets.update(secrets, ask=True)
 
             logger.debug("Profile modified: %s" % self.profile)
@@ -184,7 +184,7 @@ class ProfileModel(Model):
                 logger.debug("Profile added: %s" % self.profile_path)
 
                 self.profile = self.manager.get_profile_by_uuid(uuid)
-                secrets = {'gsm' : { NM_PASSWD : self.password}}
+                secrets = {'gsm' : {NM_PASSWD : self.password}}
                 self.profile.secrets.update(secrets, ask=True)
 
                 self.parent_model.profile_added(self)
