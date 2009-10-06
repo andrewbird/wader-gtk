@@ -102,7 +102,7 @@ class ProfileModel(Model):
         self.profile = profile
         settings = self.profile.get_settings()
 
-        if 'ignore-auto-dns' not in settings['ipv4']:
+        if 'ipv4' in settings and 'ignore-auto-dns' not in settings['ipv4']:
             settings['ipv4']['ignore-auto-dns'] = False
 
         self._load_settings(settings)
@@ -119,11 +119,12 @@ class ProfileModel(Model):
             self.apn = settings['gsm']['apn']
             self.autoconnect = settings['connection']['autoconnect']
             # DNS
-            self.static_dns = bool(settings['ipv4']['ignore-auto-dns'])
-            if 'dns' in settings['ipv4']:
-                dns = settings['ipv4']['dns']
-                self.primary_dns = dns[0] if len(dns) else None
-                self.secondary_dns = dns[1] if len(dns) > 1 else None
+            if 'ipv4' in settings:
+                self.static_dns = bool(settings['ipv4']['ignore-auto-dns'])
+                if 'dns' in settings['ipv4']:
+                    dns = settings['ipv4']['dns']
+                    self.primary_dns = dns[0] if len(dns) else None
+                    self.secondary_dns = dns[1] if len(dns) > 1 else None
 
             if 'network-type' in settings['gsm']:
                 self.network_type = settings['gsm']['network-type']
