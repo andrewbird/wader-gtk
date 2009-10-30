@@ -130,7 +130,7 @@ class MainController(Controller):
             from wader.gtk.profiles import manager
             profile = manager.get_profile_by_object_path(opath)
             # XXX: do not hardcode NM_PASSWD
-            ret = {tag : {consts.NM_PASSWD : password}}
+            ret = {tag: {consts.NM_PASSWD: password}}
             profile.set_secrets(tag, ret)
 
     def on_keyring_password_required(self, opath):

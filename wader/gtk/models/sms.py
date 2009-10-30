@@ -226,7 +226,7 @@ class SMSModel(Model):
     """
 
     __properties__ = {
-        'text' : '',
+        'text': '',
     }
 
     def __init__(self, device):

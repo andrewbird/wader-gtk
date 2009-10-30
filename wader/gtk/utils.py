@@ -33,10 +33,10 @@ def dbus_error_is(e, exception):
 
 UNIT_B, UNIT_KB, UNIT_MB, UNIT_GB = xrange(4)
 UNIT_REPR = {
-    UNIT_B : "B",
-    UNIT_KB : "KB",
-    UNIT_MB : "MB",
-    UNIT_GB : "GB",
+    UNIT_B: "B",
+    UNIT_KB: "KB",
+    UNIT_MB: "MB",
+    UNIT_GB: "GB",
 }
 
 

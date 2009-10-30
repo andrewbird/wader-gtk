@@ -31,8 +31,8 @@ from wader.gtk.consts import GLADE_DIR
 PROFILES_FRAME, STATISTICS_FRAME = range(2)
 PREFERENCES_FRAMES = (PROFILES_FRAME, STATISTICS_FRAME)
 PREFERENCES_LABEL = {
-    PROFILES_FRAME : _("Profiles"),
-    STATISTICS_FRAME : _("Statistics"),
+    PROFILES_FRAME: _("Profiles"),
+    STATISTICS_FRAME: _("Statistics"),
 }
 
 

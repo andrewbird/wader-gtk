@@ -105,8 +105,8 @@ class PreferencesModel(Model):
     __properties__ = {
         'current_tab': PREF_TABS[0],
         'default_profile': None,
-        'warn_limit' : False,
-        'transfer_limit' : -1
+        'warn_limit': False,
+        'transfer_limit': -1,
     }
 
     def __init__(self, parent, device_callable):

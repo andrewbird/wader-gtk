@@ -51,27 +51,27 @@ ONE_MB = 2**20
 class MainModel(Model):
 
     __properties__ = {
-        'rssi' : 0,
-        'profile' : None,
-        'device' : None,
-        'device_path' : None,
-        'dial_path' : None,
-        'operator' : _('Unknown'),
-        'status' : _('Not registered'),
-        'tech' : _('Unknown'),
+        'rssi': 0,
+        'profile': None,
+        'device': None,
+        'device_path': None,
+        'dial_path': None,
+        'operator': _('Unknown'),
+        'status': _('Not registered'),
+        'tech': _('Unknown'),
 
-        'pin_required' : False,
-        'puk_required' : False,
-        'puk2_required' : False,
-        'sim_error' : False,
-        'net_error' : '',
-        'key_needed' : False,
+        'pin_required': False,
+        'puk_required': False,
+        'puk2_required': False,
+        'sim_error': False,
+        'net_error': '',
+        'key_needed': False,
 
-        'rx_bytes' : 0,
-        'tx_bytes' : 0,
-        'total_bytes' : 0,
+        'rx_bytes': 0,
+        'tx_bytes': 0,
+        'total_bytes': 0,
 
-        'transfer_limit_exceeded' : False
+        'transfer_limit_exceeded': False,
     }
 
     def __init__(self):

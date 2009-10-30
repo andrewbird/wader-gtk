@@ -36,17 +36,17 @@ CONNECTED, DISCONNECTED = range(2)
 class ProfileModel(Model):
 
     __properties__ = {
-        'name' : "",
-        'username' : "",
-        'password' : "",
-        'band' : MM_NETWORK_BAND_ANY,
-        'network_type' : MM_NETWORK_MODE_ANY,
-        'autoconnect' : False,
-        'apn' : "",
-        'uuid' : "",
+        'name': "",
+        'username': "",
+        'password': "",
+        'band': MM_NETWORK_BAND_ANY,
+        'network_type': MM_NETWORK_MODE_ANY,
+        'autoconnect': False,
+        'apn': "",
+        'uuid': "",
         'static_dns': False,
-        'primary_dns' : None,
-        'secondary_dns' : None,
+        'primary_dns': None,
+        'secondary_dns': None,
     }
 
     def __init__(self, parent_model, profile=None, imsi=None,
@@ -147,17 +147,17 @@ class ProfileModel(Model):
 
     def save(self):
         props = {
-            'connection' : { 'id' : self.name, 'type' : 'gsm',
-                             'name' : 'connection', 'uuid' : self.uuid,
-                             'autoconnect' : self.autoconnect },
-            'gsm' : { 'band' : self.band, 'username' : self.username,
-                      'number' : '*99#', 'network-type' : self.network_type,
-                      'apn' : self.apn, 'name' : 'gsm' },
-            'ppp' : { 'name' : 'ppp' },
-            'serial' : { 'baud' : 115200, 'name' : 'serial' },
-            'ipv4' : { 'addresses' : [], 'method': 'auto',
-                       'ignore-auto-dns' : self.static_dns,
-                       'name' : 'ipv4', 'routes' : [] }
+            'connection': {'id': self.name, 'type': 'gsm',
+                           'name': 'connection', 'uuid': self.uuid,
+                           'autoconnect': self.autoconnect},
+            'gsm': {'band': self.band, 'username': self.username,
+                    'number': '*99#', 'network-type': self.network_type,
+                    'apn': self.apn, 'name': 'gsm'},
+            'ppp': {'name': 'ppp'},
+            'serial': {'baud': 115200, 'name': 'serial'},
+            'ipv4': {'addresses': [], 'method': 'auto',
+                     'ignore-auto-dns': self.static_dns,
+                     'name': 'ipv4', 'routes': []},
         }
 
         if not props['ipv4']['ignore-auto-dns']:
@@ -171,7 +171,7 @@ class ProfileModel(Model):
         if self.profile:
             self.manager.update_profile(self.profile, props)
             # store password associated to this connection
-            secrets = {'gsm' : {NM_PASSWD : self.password}}
+            secrets = {'gsm': {NM_PASSWD: self.password}}
             self.profile.secrets.update(secrets, ask=True)
 
             logger.debug("Profile modified: %s" % self.profile)
@@ -188,7 +188,7 @@ class ProfileModel(Model):
                 logger.debug("Profile added: %s" % self.profile_path)
 
                 self.profile = self.manager.get_profile_by_uuid(uuid)
-                secrets = {'gsm' : {NM_PASSWD : self.password}}
+                secrets = {'gsm': {NM_PASSWD: self.password}}
                 self.profile.secrets.update(secrets, ask=True)
 
                 self.parent_model.profile_added(self)
