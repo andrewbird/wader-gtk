@@ -39,6 +39,7 @@ from wader.gtk._sexy import IconEntry
 
 SMS_TAB, CTS_TAB = range(2)
 
+
 class ContactsController(Controller):
     """
     Controller for adding contacts
@@ -223,8 +224,9 @@ class SMSContactsController(Controller):
         self.cts_completion.connect('match-selected',
                                 self.on_search_entry_match_cb)
 
+        # sms completion
         if gtk.pygtk_version >= (2, 14, 0):
-            # sms completion
+
             def sms_match_func(completion, key, _iter):
                 model = completion.get_model()
                 text = model.get_value(_iter, model.COL_TEXT)
@@ -313,8 +315,9 @@ class SMSContactsController(Controller):
         It will append the SMS to the treeview model
         """
         # XXX: Handle complete argument
+        # only process it if we're in SMS mode
         if self.treeview_index == SMS_TAB:
-            # only process it if we're in SMS mode
+
             def process_sms_eb(error):
                 title = _("Error reading SMS %d") % index
                 dialogs.show_error_dialog(title, get_error_msg(error))
@@ -440,6 +443,7 @@ class SMSContactsController(Controller):
         Loads ``sms`` in the model substituting known numbers by
         its contact name
         """
+
         def setup_widgets(model):
             self.sms_completion.clear()
             self.sms_completion.set_model(model)
@@ -726,6 +730,7 @@ class SMSController(Controller):
         self.has_changed = True
 
     def on_contacts_button_clicked(self, widget):
+
         def on_contacts_list_cb(contacts):
             model = ContactsModel(contacts=contacts)
             ctrl = ContactListController(self.model, self)
@@ -855,4 +860,3 @@ class SMSController(Controller):
         """
         title = _('Error while saving SMS')
         dialogs.show_error_dialog(title, get_error_msg(error))
-

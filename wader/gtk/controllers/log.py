@@ -15,16 +15,13 @@
 # You should have received a copy of the GNU General Public License along
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
-"""
-Log controller
-"""
+"""Log controller"""
 
 from wader.gtk.controllers import Controller
 
+
 class LogController(Controller):
-    """
-    Controller for the log window
-    """
+    """Controller for the log window"""
 
     def __init__(self, model):
         super(LogController, self).__init__(model)
@@ -45,4 +42,3 @@ class LogController(Controller):
         end_iter = _buffer.get_end_iter()
         _buffer.insert(end_iter, "%s\n" % line)
         textview.scroll_to_mark(_buffer.get_insert(), 0)
-

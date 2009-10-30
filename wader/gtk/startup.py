@@ -23,6 +23,7 @@ import os
 
 import wader.gtk.consts as consts
 
+
 def create_skeleton_and_return():
     try:
         os.makedirs(consts.WADER_HOME, 0700)

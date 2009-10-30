@@ -24,6 +24,7 @@ from wader.contrib.tail import Tail
 
 INTERVAL = 15 * 100 # 1.5s
 
+
 class LogModel(Model):
 
     def __init__(self):
@@ -40,4 +41,3 @@ class LogModel(Model):
         gobject.source_remove(self.source_id)
         self.tail.close()
         self.tail = None
-

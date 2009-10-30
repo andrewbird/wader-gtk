@@ -28,6 +28,7 @@ from wader.common.sms import Message, STO_INBOX, STO_DRAFTS, STO_SENT
 from wader.gtk.consts import GLADE_DIR
 from wader.gtk.translate import _
 
+
 class Category(object):
     """
     I represent a category in the SMS/contacts application
@@ -79,8 +80,10 @@ def struct_to_contact(s):
 
     return s
 
+
 def clean_text(text):
     return text.replace('\n', ' ')
+
 
 class ContactsModel(ListStoreModel):
 
@@ -169,6 +172,7 @@ class SMSContactsModel(Model):
             # inbox
             inbox_path = os.path.join(GLADE_DIR, 'inbox.png')
             inbox_pixbuf = gtk.gdk.pixbuf_new_from_file(inbox_path)
+
             def inbox_visible_func(m, _iter):
                 obj = m.get_value(_iter, m.COL_OBJECT)
                 return (False if not obj else obj.where == STO_INBOX)
@@ -179,6 +183,7 @@ class SMSContactsModel(Model):
             # drafts
             drafts_path = os.path.join(GLADE_DIR, 'folder.png')
             drafts_pixbuf = gtk.gdk.pixbuf_new_from_file(drafts_path)
+
             def drafts_visible_func(m, _iter):
                 obj = m.get_value(_iter, m.COL_OBJECT)
                 return (False if not obj else obj.where == STO_DRAFTS)
@@ -189,6 +194,7 @@ class SMSContactsModel(Model):
             # sent
             sent_path = os.path.join(GLADE_DIR, 'mail-sent.png')
             sent_pixbuf = gtk.gdk.pixbuf_new_from_file(sent_path)
+
             def sent_visible_func(m, _iter):
                 obj = m.get_value(_iter, m.COL_OBJECT)
                 return (False if not obj else obj.where == STO_SENT)

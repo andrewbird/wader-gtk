@@ -21,6 +21,7 @@ import pynotify
 
 from wader.gtk.consts import APP_NAME
 
+
 def new_notification(status_icon, title, text="", stock=None,
                      actions=None, category=None):
 
@@ -42,4 +43,3 @@ def new_notification(status_icon, title, text="", stock=None,
 
     n.set_property('status-icon', status_icon)
     return n
-

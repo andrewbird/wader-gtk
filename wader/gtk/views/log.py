@@ -26,6 +26,7 @@ import gtk.gdk
 
 from wader.gtk.consts import GLADE_DIR
 
+
 class LogView(View):
 
     GLADE_FILE = join(GLADE_DIR, "misc.glade")
@@ -43,4 +44,3 @@ class LogView(View):
         agroup.connect_group(ord('Q'), gtk.gdk.CONTROL_MASK, gtk.ACCEL_LOCKED,
                              lambda w, x, y, z: x.destroy()) # window
         window.add_accel_group(agroup)
-

@@ -25,6 +25,7 @@ from wader.gtk.logger import logger
 from wader.gtk.utils import get_error_msg
 from wader.gtk.translate import _
 
+
 class ProfileController(Controller):
 
     def __init__(self, model):

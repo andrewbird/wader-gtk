@@ -16,6 +16,7 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
+
 def get_error_msg(e):
     """
     Returns the message attributte of ``e``
@@ -25,23 +26,28 @@ def get_error_msg(e):
 
     return e.message
 
+
 def dbus_error_is(e, exception):
     return exception.__name__ in get_error_msg(e)
 
+
 UNIT_B, UNIT_KB, UNIT_MB, UNIT_GB = xrange(4)
 UNIT_REPR = {
-    UNIT_B:  "B",
-    UNIT_KB: "KB",
-    UNIT_MB: "MB",
-    UNIT_GB: "GB",
+    UNIT_B : "B",
+    UNIT_KB : "KB",
+    UNIT_MB : "MB",
+    UNIT_GB : "GB",
 }
+
 
 def units_to_bits(value, units):
     return value * 8 * (2 ** (units * 10))
 
+
 def bits_to_units(bits, units):
     _bytes = (bits / 8)
     return float(_bytes) / (2 ** (units * 10))
+
 
 def repr_usage(bits, units=None, _round=None):
     if _round is None:
@@ -64,6 +70,6 @@ def repr_usage(bits, units=None, _round=None):
         units -= 1
     return "%d%s" % (_round(bits_to_units(bits, units)), UNIT_REPR[units])
 
+
 def bytes_repr(_bytes):
     return repr_usage(_bytes * 8)
-

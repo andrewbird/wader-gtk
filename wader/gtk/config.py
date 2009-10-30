@@ -28,4 +28,3 @@ CONF_PATH = '/apps/%s' % APP_SLUG_NAME
 DEFAULT_KEYS = ['statistics', 'profile', 'preferences', 'sms']
 
 config = WaderConfig(keys=DEFAULT_KEYS, base_path=CONF_PATH)
-

@@ -29,6 +29,7 @@ import wader.common.exceptions as ex
 
 PREF_TABS = ["PROFILES"]
 
+
 class ProfilesModel(ListStoreModel):
 
     def __init__(self):
@@ -153,4 +154,3 @@ class PreferencesModel(Model):
 
     def profile_added(self, profile):
         self.profiles_model.add_profile(profile)
-

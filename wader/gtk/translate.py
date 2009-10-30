@@ -24,4 +24,3 @@ from wader.common.consts import APP_SLUG_NAME as name
 gettext.bindtextdomain(name, os.getenv('TEXTDOMAINDIR', '/usr/share/locale'))
 gettext.textdomain(name)
 _ = gettext.gettext
-

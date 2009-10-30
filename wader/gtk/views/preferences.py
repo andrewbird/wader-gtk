@@ -35,7 +35,9 @@ PREFERENCES_LABEL = {
     STATISTICS_FRAME : _("Statistics"),
 }
 
+
 class PreferencesList(gtk.TreeView):
+
     def __init__(self, activate_callback):
         store = gtk.ListStore(gobject.TYPE_STRING)
         super(PreferencesList, self).__init__(store)
@@ -69,6 +71,7 @@ class PreferencesList(gtk.TreeView):
 
 
 class ProfilesList(gtk.TreeView):
+
     def __init__(self, model):
         super(ProfilesList, self).__init__(model)
         self.set_headers_visible(False)
@@ -140,4 +143,3 @@ class PreferencesView(View):
 
     def change_panel(self, panel):
         self['preferences_notebook'].set_current_page(panel)
-

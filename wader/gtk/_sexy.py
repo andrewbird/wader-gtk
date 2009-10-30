@@ -39,9 +39,10 @@ else:
         IconEntry = sexy.IconEntry
         ICON_ENTRY_SECONDARY = sexy.ICON_ENTRY_SECONDARY
     else:
+
         class IconEntry(gtk.Entry):
+
             def set_icon(self, size, pixbuf):
                 pass
 
         ICON_ENTRY_SECONDARY = 0
-

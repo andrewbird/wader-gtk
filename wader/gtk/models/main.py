@@ -47,6 +47,7 @@ REGISTER_TIMEOUT = 3 * 60 # 3m
 
 ONE_MB = 2**20
 
+
 class MainModel(Model):
 
     __properties__ = {
@@ -59,18 +60,18 @@ class MainModel(Model):
         'status' : _('Not registered'),
         'tech' : _('Unknown'),
 
-        'pin_required': False,
-        'puk_required': False,
-        'puk2_required': False,
+        'pin_required' : False,
+        'puk_required' : False,
+        'puk2_required' : False,
         'sim_error' : False,
         'net_error' : '',
         'key_needed' : False,
 
-        'rx_bytes': 0,
-        'tx_bytes': 0,
-        'total_bytes': 0,
+        'rx_bytes' : 0,
+        'tx_bytes' : 0,
+        'total_bytes' : 0,
 
-        'transfer_limit_exceeded': False
+        'transfer_limit_exceeded' : False
     }
 
     def __init__(self):
@@ -148,6 +149,7 @@ class MainModel(Model):
         return self.dialer_manager
 
     def quit(self, quit_cb):
+
         def quit_eb(e):
             logger.error("Error while removing device: %s" % get_error_msg(e))
             quit_cb()
@@ -162,6 +164,7 @@ class MainModel(Model):
             quit_cb()
 
     def get_imsi(self, callback):
+
         def errback(failure):
             msg = "Error while getting IMSI for device %s"
             logger.error(msg % self.device_path)
@@ -368,8 +371,8 @@ class MainModel(Model):
     def check_transfer_limit(self):
         warn_limit = self.conf.get('statistics', 'warn_limit', True)
         if warn_limit:
-            transfer_limit = self.conf.get('statistics', 'transfer_limit', 50.0)
-            transfer_limit = float(transfer_limit) * ONE_MB
+            limit = self.conf.get('statistics', 'transfer_limit', 50.0)
+            transfer_limit = float(limit) * ONE_MB
             if self.total_bytes > transfer_limit:
                 self.transfer_limit_exceeded = True
             else:
@@ -391,6 +394,7 @@ class MainModel(Model):
         self.stats_sm = self.bus.add_signal_receiver(self.on_dial_stats,
                                                      S.SIG_DIAL_STATS,
                                                      MDM_INTFACE)
+
     def stop_stats_tracking(self):
         if self.stats_sm is not None:
             self.stats_sm.remove()
@@ -399,4 +403,3 @@ class MainModel(Model):
         self.rx_bytes = 0
         self.tx_bytes = 0
         self.conf.set('statistics', 'total_bytes', self.total_bytes)
-

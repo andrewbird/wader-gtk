@@ -28,6 +28,7 @@ from gtkmvc import View
 from wader.gtk.consts import GLADE_DIR, BAND_MAP, MODE_MAP
 from wader.common.consts import MM_NETWORK_BAND_ANY, MM_NETWORK_MODE_ANY
 
+
 class ProfileView(View):
 
     GLADE_FILE = join(GLADE_DIR, "profiles.glade")
@@ -36,7 +37,8 @@ class ProfileView(View):
         super(ProfileView, self).__init__(ctrl, self.GLADE_FILE,
                                           'new_profile_window')
 
-        self._init_combobox(BAND_MAP, 'band', MM_NETWORK_BAND_ANY, self.set_band)
+        self._init_combobox(BAND_MAP, 'band', MM_NETWORK_BAND_ANY,
+                self.set_band)
         self._init_combobox(MODE_MAP, 'connection', MM_NETWORK_MODE_ANY,
                 self.set_network_mode)
 
@@ -86,4 +88,3 @@ class ProfileView(View):
         self['secondary_dns_entry'].set_sensitive(True)
         if not self['static_dns_check'].get_active():
             self['static_dns_check'].set_active(True)
-

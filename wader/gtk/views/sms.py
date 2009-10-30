@@ -348,4 +348,3 @@ class ContactsView(View):
                                                          'contacts.svg'))
         window = self.get_top_widget()
         window.set_icon(icon)
-

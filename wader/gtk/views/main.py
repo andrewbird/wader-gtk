@@ -29,6 +29,7 @@ from wader.gtk.consts import GLADE_DIR, THEMES_DIR, APP_LONG_NAME
 
 THROBBER = gtk.gdk.PixbufAnimation(os.path.join(GLADE_DIR, 'throbber.gif'))
 
+
 class MainView(View):
 
     GLADE_FILE = os.path.join(GLADE_DIR, "wader.glade")
@@ -105,4 +106,3 @@ class MainView(View):
                 pass
 
             self.throbber = None
-

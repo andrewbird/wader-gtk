@@ -44,6 +44,7 @@ class MainController(Controller):
     """
     I am the controller for the main window
     """
+
     def __init__(self, model):
         super(MainController, self).__init__(model)
         model.ctrl = self
@@ -116,7 +117,9 @@ class MainController(Controller):
                                 self._on_disconnect_cb,
                                 "Disconnected",
                                 dbus_interface=consts.WADER_DIALUP_INTFACE)
+
     # properties
+
     def property_rssi_value_change(self, model, old, new):
         self.view.rssi_changed(new)
 
@@ -127,7 +130,7 @@ class MainController(Controller):
             from wader.gtk.profiles import manager
             profile = manager.get_profile_by_object_path(opath)
             # XXX: do not hardcode NM_PASSWD
-            ret = {tag : {consts.NM_PASSWD :password}}
+            ret = {tag : {consts.NM_PASSWD : password}}
             profile.set_secrets(tag, ret)
 
     def on_keyring_password_required(self, opath):
@@ -254,6 +257,7 @@ class MainController(Controller):
         Will read and show the SMS to the user
         """
         # XXX: handle complete argument
+
         def process_sms_eb(error):
             title = _("Error reading SMS %d") % index
             show_error_dialog(title, get_error_msg(error))
@@ -271,6 +275,7 @@ class MainController(Controller):
         It will take care of looking up the number in the phonebook
         to show the name if its a known contact instead of its number
         """
+
         def find_by_number_cb(contacts):
             if not contacts:
                 title = _("SMS received from %s") % sms['number']
@@ -490,4 +495,3 @@ class MainController(Controller):
 
     def on_exit_menu_item_activate(self, widget):
         self.close_application()
-

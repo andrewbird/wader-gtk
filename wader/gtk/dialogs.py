@@ -29,12 +29,14 @@ from wader.gtk.translate import _
 from wader.gtk.consts import (APP_ARTISTS, APP_AUTHORS, APP_DOCUMENTERS,
                              GLADE_DIR, APP_VERSION, APP_NAME, APP_URL)
 
+
 def show_uri(uri):
     if not hasattr(gtk, 'show_uri'):
         from gnome import url_show
         return url_show(uri)
 
     return gtk.show_uri(gtk.gdk.Screen(), uri, 0L)
+
 
 def show_about_dialog():
     abt = gtk.AboutDialog()
@@ -92,6 +94,7 @@ def show_profile_window(main_model, profile=None, imsi=None):
     view = ProfileView(controller)
     view.show()
 
+
 def make_basic_dialog(title, buttons, stock_image):
     flags = gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT | \
             gtk.DIALOG_NO_SEPARATOR
@@ -110,6 +113,7 @@ def make_basic_dialog(title, buttons, stock_image):
     dialog.vbox.add(alignment)
     return dialog, vbox
 
+
 def show_warning_dialog(title, message):
     logger.debug("Warning dialog: %s" % message)
 
@@ -122,6 +126,7 @@ def show_warning_dialog(title, message):
     ret = dialog.run()
     dialog.destroy()
     return ret
+
 
 def show_error_dialog(title, message):
     logger.debug("Error dialog: %s" % message)
@@ -140,6 +145,7 @@ def show_error_dialog(title, message):
     dialog.destroy()
     return ret
 
+
 def show_warning_request_cancel_ok(title, message):
     logger.debug("Warning request cancel/ok dialog: %s" % message)
 
@@ -153,6 +159,7 @@ def show_warning_request_cancel_ok(title, message):
     ret = dialog.run()
     dialog.destroy()
     return ret == gtk.RESPONSE_OK
+
 
 def generic_puk_dialog(title, message, parent, puk_regexp=None,
                        pin_regexp=None):
@@ -210,6 +217,7 @@ def generic_puk_dialog(title, message, parent, puk_regexp=None,
     dialog = None
     return ret
 
+
 def generic_auth_dialog(title, message, parent, regexp=None):
     buttons = (gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL,
                gtk.STOCK_OK, gtk.RESPONSE_OK)
@@ -254,12 +262,14 @@ def generic_auth_dialog(title, message, parent, regexp=None):
     dialog = None
     return ret
 
+
 def ask_pin_dialog(parent):
     logger.debug("Asking for PIN")
     return generic_auth_dialog(
             _("PIN required"),
             _("Please, insert the PIN of your SIM card"),
             parent, regexp=re.compile('^\d{4,8}$'))
+
 
 def ask_password_dialog(parent):
     logger.debug("Asking for password")
@@ -268,6 +278,7 @@ def ask_password_dialog(parent):
             _("Please, insert the password of your connection"),
             parent, regexp=None)
 
+
 def ask_puk_dialog(parent):
     logger.debug("Asking for PUK")
     return generic_puk_dialog(
@@ -275,6 +286,7 @@ def ask_puk_dialog(parent):
             _("Please, insert the PUK and PIN of your SIM card"),
            parent, puk_regexp=re.compile('^\d{8}$'),
            pin_regexp=re.compile('^\d{4,8}$'))
+
 
 def ask_puk2_dialog(parent):
     logger.debug("Asking for PUK2")
@@ -290,6 +302,7 @@ MAX_WIDTH = 260
 MIN_WIDTH = 150
 SIZE_PER_CHAR = 15
 
+
 class ActivityProgressBar(object):
     """
     I am an activity progress bar
@@ -297,6 +310,7 @@ class ActivityProgressBar(object):
     useful for situation where we don't know how long will
     take an IO operation to complete
     """
+
     def __init__(self, title, parent, initnow=False, disable_cancel=False):
         self.tree = None
         self.window = None

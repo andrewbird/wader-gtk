@@ -40,12 +40,14 @@ except ImportError:
 FILE_TO_LOAD = GLADE_FILE if GLADE_AVAILABLE else UI_FILE
 
 if GLADE_AVAILABLE:
+
     def get_tree(path):
         return gtk.glade.XML(path)
 
     def get_object(tree, name):
         return tree.get_widget(name)
 else:
+
     def get_tree(path):
         tree = gtk.Builder()
         tree.add_from_file(path)
@@ -53,7 +55,6 @@ else:
 
     def get_object(tree, name):
         return tree.get_object(name)
-
 
 
 def add_regexp_validation(editable_widget, regexp, notify_parent_cb):
@@ -78,7 +79,9 @@ def add_password_validation(editable_widget, notify_parent_cb=None):
     add_regexp_validation(editable_widget, "^[%s]*$" % valid_chars,
                           notify_parent_cb)
 
+
 class _KeyringDialog(gtk.Dialog):
+
     def __init__(self, parent):
         flags = gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT
         super(_KeyringDialog, self).__init__(_("Insert keyring password"),
@@ -95,9 +98,8 @@ class _KeyringDialog(gtk.Dialog):
 
 
 class NewKeyringDialog(_KeyringDialog):
-    """
-    Dialog for a new keyring
-    """
+    """Dialog for a new keyring"""
+
     def __init__(self, parent):
         super(NewKeyringDialog, self).__init__(parent)
         self.cancel_button.destroy()
@@ -128,6 +130,7 @@ class KeyringPasswordDialog(_KeyringDialog):
     """
     Keyring 'insert password' dialog
     """
+
     def __init__(self, parent):
         super(KeyringPasswordDialog, self).__init__(parent)
 
@@ -143,4 +146,3 @@ class KeyringPasswordDialog(_KeyringDialog):
     def check_ok_conditions(self):
         password = self.password_entry.get_text()
         self.ok_button.set_sensitive(len(password) > 0)
-

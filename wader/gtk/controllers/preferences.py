@@ -84,4 +84,3 @@ class PreferencesController(Controller):
     def property_transfer_limit_value_change(self, model, old, new):
         if new != self.view['transfer_limit_entry'].get_value():
             self.view['transfer_limit_entry'].set_value(new)
-

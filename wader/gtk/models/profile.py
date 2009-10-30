@@ -32,6 +32,7 @@ from wader.gtk.translate import _
 
 CONNECTED, DISCONNECTED = range(2)
 
+
 class ProfileModel(Model):
 
     __properties__ = {
@@ -85,6 +86,7 @@ class ProfileModel(Model):
                                             self._on_connected_cb,
                                             "Connected",
                                             WADER_DIALUP_INTFACE))
+
     def _on_disconnected_cb(self):
         self.state = DISCONNECTED
 
@@ -180,6 +182,7 @@ class ProfileModel(Model):
                 raise RuntimeError(msg)
 
             sm = None # SignalMatch object
+
             def new_profile_cb(path):
                 self.profile_path = path
                 logger.debug("Profile added: %s" % self.profile_path)
@@ -227,4 +230,3 @@ class ProfileModel(Model):
                 sm.remove()
         else:
             raise RuntimeError(_("Trying to remove an unsaved profile"))
-
