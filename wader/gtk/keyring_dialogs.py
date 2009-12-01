@@ -31,12 +31,7 @@ from wader.gtk.consts import GLADE_DIR
 GLADE_FILE = os.path.join(GLADE_DIR, 'keyring.glade')
 UI_FILE = os.path.join(GLADE_DIR, 'keyring.ui')
 
-GLADE_AVAILABLE = True
-try:
-    import gtk.glade
-except ImportError:
-    GLADE_AVAILABLE = False
-
+GLADE_AVAILABLE = not hasattr(gtk, 'Builder')
 FILE_TO_LOAD = GLADE_FILE if GLADE_AVAILABLE else UI_FILE
 
 if GLADE_AVAILABLE:
