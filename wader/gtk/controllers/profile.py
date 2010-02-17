@@ -28,8 +28,8 @@ from wader.gtk.translate import _
 
 class ProfileController(Controller):
 
-    def __init__(self, model):
-        super(ProfileController, self).__init__(model)
+    def __init__(self, model, view):
+        super(ProfileController, self).__init__(model, view)
 
     def register_view(self, view):
         super(ProfileController, self).register_view(view)

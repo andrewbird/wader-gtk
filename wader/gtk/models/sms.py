@@ -224,10 +224,8 @@ class SMSModel(Model):
     """
     Model for the send SMS controller
     """
-
-    __properties__ = {
-        'text': '',
-    }
+    text = ''
+    __observables__ = ('text',)
 
     def __init__(self, device):
         super(SMSModel, self).__init__()

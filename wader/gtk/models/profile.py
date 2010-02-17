@@ -34,20 +34,20 @@ CONNECTED, DISCONNECTED = range(2)
 
 
 class ProfileModel(Model):
-
-    __properties__ = {
-        'name': "",
-        'username': "",
-        'password': "",
-        'band': MM_NETWORK_BAND_ANY,
-        'network_type': MM_NETWORK_MODE_ANY,
-        'autoconnect': False,
-        'apn': "",
-        'uuid': "",
-        'static_dns': False,
-        'primary_dns': None,
-        'secondary_dns': None,
-    }
+    name = ""
+    username = ""
+    password = ""
+    band = MM_NETWORK_BAND_ANY
+    network_type = MM_NETWORK_MODE_ANY
+    autoconnect = False
+    apn = ""
+    uuid = ""
+    static_dns = False
+    primary_dns = None
+    secondary_dns = None
+    __observables__ = ('name', 'username', 'password', 'band', 'network_type',
+                       'autoconnect', 'apn', 'uuid', 'static_dns',
+                       'primary_dns', 'secondary_dns')
 
     def __init__(self, parent_model, profile=None, imsi=None,
                  device_callable=None):

@@ -50,10 +50,10 @@ def main():
     create_skeleton_and_return()
 
     model = MainModel()
-    ctrl = MainController(model)
+    view = MainView()
+    ctrl = MainController(model, view)
     # XXX: :P
     model.ctrl = ctrl
-    view = MainView(ctrl)
 
     view.show()
 

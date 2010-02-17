@@ -32,11 +32,11 @@ THROBBER = gtk.gdk.PixbufAnimation(os.path.join(GLADE_DIR, 'throbber.gif'))
 
 class MainView(View):
 
-    GLADE_FILE = os.path.join(GLADE_DIR, "wader.glade")
+    glade = os.path.join(GLADE_DIR, "wader.glade")
+    top = 'window1'
 
-    def __init__(self, ctrl):
-        super(MainView, self).__init__(ctrl, self.GLADE_FILE, 'window1',
-                                       register=True)
+    def __init__(self):
+        super(MainView, self).__init__()
         self.throbber = None
         self.theme_ui()
 

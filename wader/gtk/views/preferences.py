@@ -110,33 +110,26 @@ class ProfilesList(gtk.TreeView):
 
 class PreferencesView(View):
 
-    GLADE_FILE = join(GLADE_DIR, "preferences.glade")
+    glade = join(GLADE_DIR, "preferences.glade")
+    top = 'preferences_window'
 
-    def __init__(self, ctrl):
-        super(PreferencesView, self).__init__(ctrl, self.GLADE_FILE,
-                                              'preferences_window')
+    def __init__(self):
+        super(PreferencesView, self).__init__()
         self.profiles_treeview = None
         self.preferences_treeview = None
 
         self['preferences_notebook'].set_show_tabs(False)
-        self._init_preferences_treeview()
-        self._init_profiles_treeview(ctrl)
-
-        ctrl.model.load()
-
-        # I think this should be done in anotyher way, for now this works.
-        self['transfer_limit_entry'].set_value(ctrl.model.transfer_limit)
-        self['warn_limit_check'].set_active(ctrl.model.warn_limit)
+        self.init_preferences_treeview()
 
         self.change_panel(PROFILES_FRAME)
         icon = gtk.gdk.pixbuf_new_from_file(join(GLADE_DIR, 'wader.png'))
         self.get_top_widget().set_icon(icon)
 
-    def _init_preferences_treeview(self):
+    def init_preferences_treeview(self):
         self.preferences_treeview = PreferencesList(self.change_panel)
         self['preferences_view'].add(self.preferences_treeview)
 
-    def _init_profiles_treeview(self, ctrl):
+    def init_profiles_treeview(self, ctrl):
         model = ctrl.model.get_profiles_model(ctrl.device_callable)
         self.profiles_treeview = ProfilesList(model)
         self['profiles_view'].add(self.profiles_treeview)

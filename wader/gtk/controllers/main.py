@@ -45,8 +45,8 @@ class MainController(Controller):
     I am the controller for the main window
     """
 
-    def __init__(self, model):
-        super(MainController, self).__init__(model)
+    def __init__(self, model, view):
+        super(MainController, self).__init__(model, view)
         model.ctrl = self
         self.cid = None
 
@@ -453,9 +453,9 @@ class MainController(Controller):
         from wader.gtk.views.preferences import PreferencesView
         from wader.gtk.controllers.preferences import PreferencesController
 
-        controller = PreferencesController(self.model.preferences_model,
+        view = PreferencesView()
+        controller = PreferencesController(self.model.preferences_model, view,
                                            lambda: self.model.device)
-        view = PreferencesView(controller)
 
         profiles_model = self.model.preferences_model.profiles_model
         if not profiles_model.has_active_profile():
@@ -472,8 +472,9 @@ class MainController(Controller):
         from wader.gtk.views.sms import SMSContactsView
 
         model = SMSContactsModel(self.model.device)
-        ctrl = SMSContactsController(model, self)
-        view = SMSContactsView(ctrl, parent_view=self.view)
+        view = SMSContactsView(parent=self.view)
+        ctrl = SMSContactsController(model, view, self)
+        view.init_ui(ctrl)
 
         view.show()
 

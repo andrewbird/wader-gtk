@@ -27,12 +27,17 @@ from wader.gtk.utils import get_error_msg
 
 class PreferencesController(Controller):
 
-    def __init__(self, model, device_callable):
-        super(PreferencesController, self).__init__(model)
+    def __init__(self, model, view, device_callable):
+        super(PreferencesController, self).__init__(model, view)
         self.device_callable = device_callable
 
     def register_view(self, view):
         super(PreferencesController, self).register_view(view)
+        view.init_profiles_treeview(self)
+        self.model.load()
+
+        self.view['transfer_limit_entry'].set_value(self.model.transfer_limit)
+        self.view['warn_limit_check'].set_active(self.model.warn_limit)
 
     def on_cancel_button_clicked(self, event):
         self.close_controller()

@@ -101,13 +101,13 @@ class ProfilesModel(ListStoreModel):
 
 
 class PreferencesModel(Model):
+    current_tab = PREF_TABS[0]
+    default_profile = None
+    warn_limit = False
+    transfer_limit = -1
 
-    __properties__ = {
-        'current_tab': PREF_TABS[0],
-        'default_profile': None,
-        'warn_limit': False,
-        'transfer_limit': -1,
-    }
+    __observables__ = ('current_tab', 'default_profile', 'warn_limit',
+                       'transfer_limit')
 
     def __init__(self, parent, device_callable):
         super(PreferencesModel, self).__init__()

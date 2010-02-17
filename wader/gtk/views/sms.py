@@ -52,15 +52,12 @@ THROBBER = gtk.gdk.PixbufAnimation(os.path.join(GLADE_DIR, 'throbber.gif'))
 
 class SMSContactsView(View):
 
-    GLADE_FILE = os.path.join(GLADE_DIR, "sms.glade")
+    glade = os.path.join(GLADE_DIR, "sms.glade")
+    top = 'main_window'
 
-    def __init__(self, ctrl, **kwds):
+    def __init__(self, **kwds):
         self.throbber = None
-
-        super(SMSContactsView, self).__init__(ctrl, self.GLADE_FILE,
-                                              'main_window',
-                                              register=True, **kwds)
-        self.init_ui(ctrl)
+        super(SMSContactsView, self).__init__(**kwds)
 
     def init_ui(self, ctrl):
         icon = gtk.image_new_from_stock(gtk.STOCK_CLEAR, gtk.ICON_SIZE_MENU)
@@ -255,12 +252,11 @@ class SMSContactsView(View):
 
 
 class ContactListView(View):
-    GLADE_FILE = os.path.join(GLADE_DIR, "sms.glade")
+    glade = os.path.join(GLADE_DIR, "sms.glade")
+    top = 'contacts_list_window'
 
-    def __init__(self, ctrl, contacts_model, **kwds):
-        super(ContactListView, self).__init__(ctrl, self.GLADE_FILE,
-                                              'contacts_list_window',
-                                              register=True, **kwds)
+    def __init__(self, contacts_model, **kwds):
+        super(ContactListView, self).__init__(**kwds)
         self.style_ui()
         self.setup_treeview(contacts_model)
         self.get_top_widget().set_size_request(CTS_APP_WIDTH, CTS_APP_HEIGHT)
@@ -293,11 +289,11 @@ class ContactListView(View):
 
 class SMSView(View):
 
-    GLADE_FILE = os.path.join(GLADE_DIR, "sms.glade")
+    glade = os.path.join(GLADE_DIR, "sms.glade")
+    top = 'sms_window'
 
-    def __init__(self, ctrl, **kwds):
-        super(SMSView, self).__init__(ctrl, self.GLADE_FILE,
-                                      'sms_window', **kwds)
+    def __init__(self):
+        super(SMSView, self).__init__()
         self.style_ui()
 
     def style_ui(self):
@@ -332,15 +328,13 @@ class SMSView(View):
 
 
 class ContactsView(View):
-    """
-    View for the add contact window
-    """
+    """View for the add contact window"""
 
-    GLADE_FILE = os.path.join(GLADE_DIR, "sms.glade")
+    glade = os.path.join(GLADE_DIR, "sms.glade")
+    top = 'contacts_window'
 
-    def __init__(self, ctrl, **kwds):
-        super(ContactsView, self).__init__(ctrl, self.GLADE_FILE,
-                                      'contacts_window', **kwds)
+    def __init__(self, **kwds):
+        super(ContactsView, self).__init__(**kwds)
         self.style_ui()
 
     def style_ui(self):

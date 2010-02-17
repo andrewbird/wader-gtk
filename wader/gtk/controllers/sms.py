@@ -45,8 +45,8 @@ class ContactsController(Controller):
     Controller for adding contacts
     """
 
-    def __init__(self, model, parent):
-        super(ContactsController, self).__init__(model)
+    def __init__(self, model, view, parent):
+        super(ContactsController, self).__init__(model, view)
 
         self.parent = parent
         self.contact = None
@@ -115,8 +115,8 @@ class ContactListController(Controller):
     Controller for the list of contacts
     """
 
-    def __init__(self, model, parent):
-        super(ContactListController, self).__init__(model)
+    def __init__(self, model, view, parent):
+        super(ContactListController, self).__init__(model, view)
         self.parent = parent
 
     def register_view(self, view):
@@ -154,8 +154,8 @@ class SMSContactsController(Controller):
     Controller for the SMS and Contacts window
     """
 
-    def __init__(self, model, parent):
-        super(SMSContactsController, self).__init__(model)
+    def __init__(self, model, view, parent):
+        super(SMSContactsController, self).__init__(model, view)
         self.parent = parent
         self.category = None
         self.search_entry = IconEntry()
@@ -267,16 +267,16 @@ class SMSContactsController(Controller):
 
     def _new_contact(self):
         model = ContactsModel(device=self.model.device)
-        ctrl = ContactsController(model, parent=self)
-        view = ContactsView(ctrl)
+        view = ContactsView()
+        ctrl = ContactsController(model, view, parent=self)
         view.set_parent_view(self.view)
 
         view.show()
 
     def _new_sms(self):
         model = SMSModel(self.model.device)
-        ctrl = SMSController(model, self)
-        view = SMSView(ctrl)
+        view = SMSView()
+        ctrl = SMSController(model, view, self)
         view.set_parent_view(self.view)
 
         view.show()
@@ -624,8 +624,8 @@ class SMSContactsController(Controller):
 
     def _send_sms_from_storage(self, menuitem, treeview):
         model = SMSModel(self.model.device)
-        ctrl = SMSController(model, self, mode=STORAGE)
-        view = SMSView(ctrl)
+        view = SMSView()
+        ctrl = SMSController(model, view, self, mode=STORAGE)
 
         view.set_parent_view(self.view)
 
@@ -638,8 +638,8 @@ class SMSContactsController(Controller):
         selected = self._get_selected_objects(treeview)
 
         model = SMSModel(self.model.device)
-        ctrl = SMSController(model, self)
-        view = SMSView(ctrl)
+        view = SMSView()
+        ctrl = SMSController(model, view, self)
 
         view.set_parent_view(self.view)
         map(view.add_contact, selected['objs'])
@@ -656,8 +656,8 @@ class SMSController(Controller):
     Controller for the SMS window
     """
 
-    def __init__(self, model, parent, mode=REGULAR):
-        super(SMSController, self).__init__(model)
+    def __init__(self, model, view, parent, mode=REGULAR):
+        super(SMSController, self).__init__(model, view)
         self.state = IDLE
         self.mode = mode
         self.pdu = PDU()
@@ -733,8 +733,8 @@ class SMSController(Controller):
 
         def on_contacts_list_cb(contacts):
             model = ContactsModel(contacts=contacts)
-            ctrl = ContactListController(self.model, self)
-            view = ContactListView(ctrl, model)
+            view = ContactListView(model)
+            ctrl = ContactListController(self.model, view, self)
 
             view.show()
 
