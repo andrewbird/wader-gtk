@@ -484,8 +484,8 @@ class MainController(Controller):
         from wader.gtk.models.log import LogModel
 
         model = LogModel()
-        ctrl = LogController(model)
-        view = LogView(ctrl)
+        view = LogView()
+        ctrl = LogController(model, view)
 
         view.show()
 

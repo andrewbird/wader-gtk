@@ -23,8 +23,8 @@ from wader.gtk.controllers import Controller
 class LogController(Controller):
     """Controller for the log window"""
 
-    def __init__(self, model):
-        super(LogController, self).__init__(model)
+    def __init__(self, model, view):
+        super(LogController, self).__init__(model, view)
 
     def register_view(self, view):
         super(LogController, self).register_view(view)

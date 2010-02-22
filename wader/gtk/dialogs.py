@@ -90,8 +90,8 @@ def show_profile_window(main_model, profile=None, imsi=None):
         model = ProfileModel(main_model, imsi=imsi,
                              device_callable=main_model.device_callable)
 
-    controller = ProfileController(model)
-    view = ProfileView(controller)
+    view = ProfileView()
+    controller = ProfileController(model, view)
     view.show()
 
 

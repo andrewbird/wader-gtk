@@ -31,18 +31,17 @@ from wader.common.consts import MM_NETWORK_BAND_ANY, MM_NETWORK_MODE_ANY
 
 class ProfileView(View):
 
-    GLADE_FILE = join(GLADE_DIR, "profiles.glade")
+    glade = join(GLADE_DIR, "profiles.glade")
+    top = 'new_profile_window'
 
-    def __init__(self, ctrl):
-        super(ProfileView, self).__init__(ctrl, self.GLADE_FILE,
-                                          'new_profile_window')
+    def __init__(self):
+        super(ProfileView, self).__init__()
 
         self._init_combobox(BAND_MAP, 'band', MM_NETWORK_BAND_ANY,
                 self.set_band)
         self._init_combobox(MODE_MAP, 'connection', MM_NETWORK_MODE_ANY,
                 self.set_network_mode)
 
-        ctrl.setup_view(self)
         self['static_dns_check'].connect('toggled', self.on_static_dns_toggled)
         icon = gtk.gdk.pixbuf_new_from_file(join(GLADE_DIR, 'wader.png'))
         self.get_top_widget().set_icon(icon)

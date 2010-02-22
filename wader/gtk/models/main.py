@@ -52,7 +52,7 @@ class MainModel(Model):
     rssi = 0
     profile = None
     device = None
-    device_path = None
+    device_opath = None
     dial_path = None
     operator = _('Unknown')
     status = _('Not registered')
@@ -71,11 +71,11 @@ class MainModel(Model):
 
     transfer_limit_exceeded = False
 
-    __observables__ = ('rssi', 'profile', 'device', 'device_path', 'dial_path',
-                       'operator', 'status', 'tech', 'pin_required',
-                       'puk_required', 'puk2_required', 'sim_error',
-                       'net_error', 'key_needed', 'rx_bytes', 'tx_bytes',
-                       'total_bytes')
+    __observables__ = ('rssi', 'profile', 'device', 'device_opath',
+                       'dial_path', 'operator', 'status', 'tech',
+                       'pin_required', 'puk_required', 'puk2_required',
+                       'sim_error', 'net_error', 'key_needed', 'rx_bytes',
+                       'tx_bytes', 'total_bytes')
 
     def __init__(self):
         super(MainModel, self).__init__()

@@ -29,10 +29,11 @@ from wader.gtk.consts import GLADE_DIR
 
 class LogView(View):
 
-    GLADE_FILE = join(GLADE_DIR, "misc.glade")
+    glade = join(GLADE_DIR, "misc.glade")
+    top = 'log_window'
 
-    def __init__(self, ctrl):
-        super(LogView, self).__init__(ctrl, self.GLADE_FILE, 'log_window')
+    def __init__(self):
+        super(LogView, self).__init__()
         window = self.get_top_widget()
 
         icon = gtk.Button().render_icon(gtk.STOCK_FILE, gtk.ICON_SIZE_DIALOG)

@@ -33,6 +33,7 @@ class ProfileController(Controller):
 
     def register_view(self, view):
         super(ProfileController, self).register_view(view)
+        self.setup_view(view)
 
     def setup_view(self, view):
         self.view['profile_name_entry'].set_text(self.model.name)
