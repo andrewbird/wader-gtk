@@ -22,7 +22,7 @@ import gtk
 import gobject
 from gtkmvc import Model, TreeStoreModel, ListStoreModel
 
-from wader.common.oal import osobj
+from wader.common.oal import get_os_object
 from wader.common.contact import Contact
 from wader.common.sms import Message, STO_INBOX, STO_DRAFTS, STO_SENT
 from wader.gtk.consts import GLADE_DIR
@@ -126,7 +126,7 @@ class MessagesModel(ListStoreModel):
         self.tz = None
 
         try:
-            self.tz = osobj.get_tzinfo()
+            self.tz = get_os_object().get_tzinfo()
         except:
             pass
 

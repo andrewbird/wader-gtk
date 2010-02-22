@@ -178,7 +178,7 @@ class ProfileModel(Model):
         else:
             uuid = props['connection']['uuid']
             if self.parent_model.profiles_model.has_profile(uuid=uuid):
-                msg = _('A profile with udi "%s" exists') % uuid
+                msg = _('A profile with uuid "%s" exists') % uuid
                 raise RuntimeError(msg)
 
             sm = None # SignalMatch object

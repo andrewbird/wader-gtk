@@ -28,7 +28,7 @@ from gtkmvc import View
 from wader.gtk.translate import _
 from wader.gtk._sexy import ICON_ENTRY_SECONDARY
 from wader.gtk.consts import GLADE_DIR
-from wader.common.oal import osobj
+from wader.common.oal import get_os_object
 
 CTS_APP_WIDTH = 200
 CTS_APP_HEIGHT = 300
@@ -214,7 +214,8 @@ class SMSContactsView(View):
                 # no datetime, a SMS_SUBMIT
                 cell.set_property('text', _('no timestamp'))
 
-        column.set_cell_data_func(cell, render_date, osobj.get_tzinfo())
+        column.set_cell_data_func(cell, render_date,
+                                  get_os_object().get_tzinfo())
         treeview.append_column(column)
 
         # some boilerplate to be able to sort SMS by date

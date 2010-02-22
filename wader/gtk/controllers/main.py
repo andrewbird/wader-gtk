@@ -292,7 +292,7 @@ class MainController(Controller):
                                        reply_handler=find_by_number_cb,
                                        error_handler=logger.error)
 
-    def on_device_enabled_cb(self, udi):
+    def on_device_enabled_cb(self, opath):
         self.view['sms_menuitem'].set_sensitive(True)
         self.view['preferences_menu_item'].set_sensitive(True)
 
@@ -414,7 +414,7 @@ class MainController(Controller):
             active_profile = profiles_model.get_active_profile()
 
             dialmanager.ActivateConnection(active_profile.profile_path,
-                                           self.model.device_path,
+                                           self.model.device_opath,
                                            timeout=40,
                                            reply_handler=self._on_connect_cb,
                                            error_handler=self._on_connect_eb)
@@ -427,7 +427,7 @@ class MainController(Controller):
 
             def stop_connection_attempt():
                 self._ignore_no_reply = True
-                dialmanager.StopConnection(self.model.device_path,
+                dialmanager.StopConnection(self.model.device_opath,
                                            reply_handler=cancel_cb,
                                            error_handler=logger.error)
 
