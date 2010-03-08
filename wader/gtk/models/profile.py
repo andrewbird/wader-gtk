@@ -20,7 +20,7 @@ from uuid import uuid1
 import dbus
 from gtkmvc import Model
 
-from wader.common.consts import (NM_PASSWD, WADER_DIALUP_INTFACE,
+from wader.common.consts import (WADER_DIALUP_INTFACE,
                                  WADER_PROFILES_INTFACE, NET_INTFACE,
                                  MM_NETWORK_MODE_ANY, MM_NETWORK_BAND_ANY)
 from wader.common.utils import (convert_int_to_uint as convert,
@@ -96,9 +96,7 @@ class ProfileModel(Model):
     def load_password(self):
         if self.profile:
             secrets = self.profile.secrets.get(ask=False)
-
-            if secrets and 'gsm' in secrets and NM_PASSWD in secrets['gsm']:
-                self.password = secrets['gsm'][NM_PASSWD]
+            self.password = secrets['gsm']['passwd']
 
     def _load_profile(self, profile):
         self.profile = profile
@@ -171,7 +169,7 @@ class ProfileModel(Model):
         if self.profile:
             self.manager.update_profile(self.profile, props)
             # store password associated to this connection
-            secrets = {'gsm': {NM_PASSWD: self.password}}
+            secrets = {'password': self.password}
             self.profile.secrets.update(secrets, ask=True)
 
             logger.debug("Profile modified: %s" % self.profile)
@@ -188,7 +186,7 @@ class ProfileModel(Model):
                 logger.debug("Profile added: %s" % self.profile_path)
 
                 self.profile = self.manager.get_profile_by_uuid(uuid)
-                secrets = {'gsm': {NM_PASSWD: self.password}}
+                secrets = {'password': self.password}
                 self.profile.secrets.update(secrets, ask=True)
 
                 self.parent_model.profile_added(self)

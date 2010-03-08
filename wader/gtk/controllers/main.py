@@ -128,21 +128,19 @@ class MainController(Controller):
 
         if password:
             from wader.gtk.profiles import manager
+            ret = {'gsm': {'passwd': password}}
             profile = manager.get_profile_by_object_path(opath)
-            # XXX: do not hardcode NM_PASSWD
-            ret = {tag: {consts.NM_PASSWD: password}}
             profile.set_secrets(tag, ret)
 
-    def on_keyring_password_required(self, opath):
+    def on_keyring_password_required(self, opath, callback=None):
         from wader.gtk.profiles import manager
         profile = manager.get_profile_by_object_path(opath)
         password = None
 
-        if profile.secrets.manager.is_new:
+        if profile.secrets.manager.is_new():
             dialog = NewKeyringDialog(self.view.get_top_widget())
             response = dialog.run()
-        else:
-            # profile.secrets.manager.is_open == True
+        elif not profile.secrets.manager.is_open():
             dialog = KeyringPasswordDialog(self.view.get_top_widget())
             response = dialog.run()
 
@@ -160,6 +158,10 @@ class MainController(Controller):
                 show_error_dialog(title, details)
                 # call ourselves again
                 self.on_keyring_password_required(opath)
+            else:
+                if callback is not None:
+                    uuid = profile.get_settings()['connection']['uuid']
+                    callback(profile.secrets.manager.get_secrets(uuid))
 
     def property_operator_value_change(self, model, old, new):
         if new == _('Unknown Network'):
