@@ -20,9 +20,13 @@ Controllers for SMS and Contacts functionality
 """
 
 import gtk
-from messaging import (PDU, SEVENBIT_SIZE as SEVENBIT, UCS2_SIZE as UCS2,
-                       SEVENBIT_MP_SIZE as SEVENBIT_MP, is_valid_gsm_text,
-                       UCS2_MP_SIZE as UCS2_MP)
+
+from messaging.sms import SmsSubmit, is_gsm_text
+from messaging.sms.consts import (SEVENBIT_SIZE as SEVENBIT, UCS2_SIZE as UCS2,
+                                  SEVENBIT_MP_SIZE as SEVENBIT_MP,
+                                  UCS2_MP_SIZE as UCS2_MP)
+
+
 
 from wader.common.contact import Contact
 from wader.common.sms import Message, STO_DRAFTS, STO_INBOX, STO_SENT
@@ -660,7 +664,6 @@ class SMSController(Controller):
         super(SMSController, self).__init__(model, view)
         self.state = IDLE
         self.mode = mode
-        self.pdu = PDU()
         self.has_changed = False
 
         self.parent = parent
@@ -710,12 +713,12 @@ class SMSController(Controller):
 
         # get the number of messages
         # we use a default number for encoding purposes
-        num_sms = len(self.pdu.encode_pdu('+342453435', text))
+        num_sms = len(SmsSubmit('+342453435', text).to_pdu())
         if num_sms == 1:
-            max_length = SEVENBIT if is_valid_gsm_text(text) else UCS2
+            max_length = SEVENBIT if is_gsm_text(text) else UCS2
             return "%d/%d" % (len(text), max_length)
         else:
-            max_length = SEVENBIT_MP if is_valid_gsm_text(text) else UCS2_MP
+            max_length = SEVENBIT_MP if is_gsm_text(text) else UCS2_MP
             used = len(text) - (max_length * (num_sms - 1))
             return "%d/%d   (%d SMS)" % (used, max_length, num_sms)
 
