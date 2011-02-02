@@ -442,7 +442,7 @@ class SMSContactsController(Controller):
     # actions callbacks
     def on_sms_list_cb(self, sms):
         """
-        Callback for org.freedesktop.ModemManager.Gsm.Sms.List
+        Callback for org.freedesktop.ModemManager.Gsm.SMS.List
 
         Loads ``sms`` in the model substituting known numbers by
         its contact name
@@ -487,7 +487,7 @@ class SMSContactsController(Controller):
 
     def on_sms_list_eb(self, error):
         """
-        Errback for org.freedesktop.ModemManager.Gsm.Sms.List
+        Errback for org.freedesktop.ModemManager.Gsm.SMS.List
 
         Show an error message to the user in case something goes bad
         """
